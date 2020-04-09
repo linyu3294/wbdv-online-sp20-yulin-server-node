@@ -21,20 +21,20 @@ const pretty = require('express-prettify')
 app.use(pretty({ query: 'pretty' }))
 const bodyparser = require('body-parser')
 
-const mongoose = require("mongoose")
-mongoose.connect("mongodb://localhost:27017/whiteboard-cs5610-o-ylin-db",{ useNewUrlParser: true })
-
+// const mongoose = require("mongoose")
+// mongoose.connect("mongodb://localhost:27017/whiteboard-cs5610-o-ylin-db",{ useNewUrlParser: true })
+//
 
 
 // setting up the quizzes server (listens to the endpoints and directs any request to quiz service)
 require("./_controllers/quizzes.contoller.server")(app)
-//Create mongoose schema for quizzes
-const quizzesSchema = mongoose.Schema({
-    title: String
-}, {collectionName: 'quizzes'})
-// const quizModel
-const quizzesModel = mongoose.model("quizzesModel", quizzesSchema)
-quizzesModel.find().then (allQuizzes=>console.log(allQuizzes))
+// //Create mongoose schema for quizzes
+// const quizzesSchema = mongoose.Schema({
+//     title: String
+// }, {collectionName: 'quizzes'})
+// // const quizModel
+// const quizzesModel = mongoose.model("quizzesModel", quizzesSchema)
+// quizzesModel.find().then (allQuizzes=>console.log(allQuizzes))
 
 
 // Setting up server controllers to express app
