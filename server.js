@@ -4,8 +4,10 @@ const app = express()
 
 //Configuring some parameters to specify how the express app will listen to any request
 app.use(function(req, res, next) {
+    // res.header("Access-Control-Allow-Origin",
+    //     "http://localhost:4200")
     res.header("Access-Control-Allow-Origin",
-        "http://localhost:4200")
+        "https://secret-plateau-50201.herokuapp.com")
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept")
     res.header("Access-Control-Allow-Methods",
