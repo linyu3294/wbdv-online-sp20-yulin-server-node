@@ -4,7 +4,6 @@
   "description": "A Simple Server written with NodeJS",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,8 +17,5 @@
     "express": "^4.17.1",
     "express-prettify": "^0.1.1",
     "mongoose": "^5.9.6"
-  },
-  "engines": {
-    "node": "12.14.0"
   }
 }

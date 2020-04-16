@@ -1,5 +1,5 @@
 
-const quizzes = require('./quizzes')
+const quizzes = require('./__quizzes')
 
 findAllQuizzes = () => quizzes
 

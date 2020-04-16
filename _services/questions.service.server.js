@@ -1,5 +1,5 @@
 
-const questions = require('./questions')
+const questions = require('./__questions')
 
 findAllQuestions = () => questions
 
