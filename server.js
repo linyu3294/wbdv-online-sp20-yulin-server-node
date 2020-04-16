@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const express = require ("express")
 const app = express()
 
-mongoose.connect("mongodb://localhost:27017/whiteboard-cs5610-o-ylin-db",
+mongoose.connect("mongodb://heroku_wtlbsg56:lo3e688p0hdjlcof2nmuugl4ar@ds051605.mlab.com:51605/heroku_wtlbsg56",
     { useNewUrlParser: true, useUnifiedTopology: true })
 
 // mongoose.connect("mongodb://heroku_wtlbsg56:lo3e688p0hdjlcof2nmuugl4ar@ds051605.mlab.com:51605/heroku_wtlbsg56",
