@@ -19,13 +19,13 @@ app.use(function(req, res, next) {
 });
 
 
-var connectionString = 'mongodb://127.0.0.1:27017/whiteboard-cs5610-o-ylin-db';
-if(process.env.MLAB_USERNAME_WEBDEV) {
-    var username = process.env.MLAB_USERNAME_WEBDEV;
-    var password = process.env.MLAB_PASSWORD_WEBDEV;
-    connectionString = 'mongodb://' + username + ':' + password;
-    connectionString += '@ds051605.mlab.com:51605/heroku_wtlbsg56';
-}
+var connectionString = 'mongodb://heroku_wtlbsg56:lo3e688p0hdjlcof2nmuugl4ar@ds051605.mlab.com:51605/heroku_wtlbsg56';
+// if(process.env.MLAB_USERNAME_WEBDEV) {
+//     var username = process.env.MLAB_USERNAME_WEBDEV;
+//     var password = process.env.MLAB_PASSWORD_WEBDEV;
+//     connectionString = 'mongodb://' + username + ':' + password;
+//     connectionString += '@ds051605.mlab.com:51605/heroku_wtlbsg56';
+// }
 
 mongoose.connect(connectionString,
     { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,12 +39,12 @@ mongoose.connect(connectionString,
 // app.use(bodyparser.json)
 
 
-var session = require('express-session')
-app.use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: 'any string'
-}));
+// var session = require('express-session')
+// app.use(session({
+//     resave: false,
+//     saveUninitialized: true,
+//     secret: 'any string'
+// }));
 
 require('./controllers/quizzes.controller.server')(app)
 require('./controllers/questions.controller.server')(app)
