@@ -21,9 +21,9 @@ app.use(function(req, res, next) {
 });
 
 // Configuring some parameters to specify how the express app will parse the body
-const bodyparser = require('body-parser')
-app.use(bodyparser.urlencoded({extended: false}))
-app.use(bodyparser.json)
+// const bodyparser = require('body-parser')
+// app.use(bodyparser.urlencoded({extended: false}))
+// app.use(bodyparser.json)
 
 
 
