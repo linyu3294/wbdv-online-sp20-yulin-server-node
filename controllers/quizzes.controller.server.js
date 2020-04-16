@@ -9,4 +9,5 @@ module.exports = function (app) {
     app.get('/api/quizzes', (req, res) =>
         quizzesService.findAllQuizzes()
             .then(allQuizzes => res.send(allQuizzes)))
+
 }

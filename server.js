@@ -6,7 +6,6 @@ const app = express()
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin",
         "http://localhost:4200")
-
     res.header("Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept")
     res.header("Access-Control-Allow-Methods",
@@ -23,28 +22,25 @@ app.use(pretty({ query: 'pretty' }))
 const bodyparser = require('body-parser')
 
 const mongoose = require("mongoose")
-mongoose.connect("mongodb://heroku_wtlbsg56:lo3e688p0hdjlcof2nmuugl4ar@ds051605.mlab.com:51605/heroku_wtlbsg56",{ useNewUrlParser: true })
+mongoose.connect("mongodb://heroku_wtlbsg56:lo3e688p0hdjlcof2nmuugl4ar@ds051605.mlab.com:51605/heroku_wtlbsg56",
+    { useNewUrlParser: true, useUnifiedTopology: true })
 
 
-
-// setting up the quizzes server (listens to the endpoints and directs any request to quiz service)
-require("./_controllers/quizzes.contoller.server")(app)
-//Create mongoose schema for quizzes
-const quizzesSchema = mongoose.Schema({
-    title: String
-}, {collection: 'quizzes'})
-// const quizModel
-const quizzesModel = mongoose.model("quizzesModel", quizzesSchema)
-quizzesModel.find().then (allQuizzes=>console.log(allQuizzes))
+var session = require('express-session')
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'any string'
+}));
 
 
-// Setting up server controllers to express app
-require("./_controllers/questions.controller.server")(app)
+require('./controllers/quizzes.controller.server')(app)
+require('./controllers/questions.controller.server')(app)
+require('./controllers/users.controller.server')(app)
+require('./controllers/session.controller.server')(app)
 
+app.get('/hello', (req, res) => res.send('hello world!'))
 
-
-// A test for starting the server
-app.get('/hello', (request, response)=>response.send("Hello World"))
 
 // Allows the app to actively listen
 app.listen(process.env.PORT || 3000)
