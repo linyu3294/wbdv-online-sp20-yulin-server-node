@@ -5,8 +5,8 @@ findAllQuestions = () => questionsDao.findAllQuestions()
 
 findQuestionById = (qid) => questionsDao.findQuestionById(qid)
 
-findQuestionsForQuiz = (qzid) =>questionsDao.findQuestionForQuiz(qzid)
-    .then(quiz=>quiz.questions)
+findQuestionsForQuiz = (qzid) =>questionsDao.findQuestionsForQuiz(qzid)
+    .then(questions=>questions)
 
 module.exports = {
     findAllQuestions,

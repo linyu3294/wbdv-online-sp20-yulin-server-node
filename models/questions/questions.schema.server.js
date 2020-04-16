@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const questionsSchema = mongoose.Schema({
+    _id : String,
     title: {type: String, default: 'New Question'},
     question: {type: String, required: true},
     correct: String,
