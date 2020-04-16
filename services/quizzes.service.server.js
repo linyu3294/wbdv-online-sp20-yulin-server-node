@@ -1,5 +1,3 @@
-
-
 const quizzesDao = require('../daos/quizzes.dao.server')
 
 findAllQuizzes = () => quizzesDao.findAllQuizzes()
